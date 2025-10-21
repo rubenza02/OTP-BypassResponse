@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=development
+      - SECRET_KEY=devonly
+  frontend:
+    build: ./frontend
+    ports:
+      - "8082:80"
+    depends_on:
+      - backend
